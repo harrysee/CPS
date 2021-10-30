@@ -27,13 +27,25 @@ function viewScore() {
 
 function viewResult() {
     title.innerHTML = '와우~ 멋진데요';
+    const scoreT = cnt/10.00;
+    let comment = '';
+    if(scoreT <3.0){
+        comment = '음... 좀 더 분발하세요';
+    }else if(scoreT < 6.0){
+        comment = '더 빠르게 더 힘차게!';
+    }else if(scoreT < 10.0){
+        comment = '나쁘지 않아영 좋아영';
+    }else{
+        comment = 'WoW 이정도면 달인인디';
+    }
+
     score.innerHTML = `[ ${cnt/10.00} 점 ]`;
     setTimeout(() => {
         cnt = 0;
         time = 10.00;
         punch.style.pointerEvents = "auto";   
         viewScore(); 
-        title.innerHTML = '다시 한번 도전 ~!!';
+        title.innerHTML = comment;
     }, 5000);
 }
 
